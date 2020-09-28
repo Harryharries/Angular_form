@@ -1,0 +1,18 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-23 13:28:05
+ * @LastEditTime: 2020-09-23 23:09:27
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /my-app/src/app/components/home/home.component.html
+-->
+<p>home works!</p>
+<!--
+<img src="assets/images/SS.png" alt="code"> -->
+
+<img [src] = "picUrl"/>
+
+<button (click)="run($event)"> do it</button>
+
+<input type="text" [(ngModel)]='keywords'/>
+{{keywords}}

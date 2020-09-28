@@ -1,0 +1,47 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-24 10:29:05
+ * @LastEditTime: 2020-09-24 15:52:29
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /my-app/src/app/components/form/form.component.html
+-->
+<h2>form works</h2>
+
+<div class="people_list">
+  <ul>
+    <li>name: <input type="text" name="" id="username1" [(ngModel)]="peopleInfo.username" class="form_input"></li>
+    <li>
+      sex:
+
+      <input type="radio" value="1" name="sex" id="sex1" [(ngModel)]="peopleInfo.sex"> <label for="sex1">male</label>
+      <input type="radio" value="2"  name="sex" id="sex2" [(ngModel)]="peopleInfo.sex"> <label for="sex2">female</label>
+    </li>
+
+    <li>
+      city:
+      <select name="city" id="city" [(ngModel)]="peopleInfo.city">
+
+        <option [value]="item" *ngFor="let item of peopleInfo.cityList">{{item}}</option>
+      </select>
+
+    </li>
+
+    <li>
+      hobby:
+      <span *ngFor="let item of peopleInfo.hobby; let key=index;">
+        <input type="checkbox" [id]="'check'+key" [(ngModel)]="item.checked"/> <label [for]="'check'+key"> {{item.title}}</label>
+        &nbsp;
+      </span>
+
+    </li>
+  </ul>
+
+
+  <button (click)="doSubmit()" class="myclass"> getform</button>
+
+  <pre>
+    {{peopleInfo|json}}
+  </pre>
+</div>
+
