@@ -7,10 +7,18 @@
  * @FilePath: /my-app/src/app/components/form/form.component.html
 -->
 <h2>form works</h2>
+<div>
+  <input type="text" [(ngModel)]="keyword"/> <button (click)="dopush()">add</button>
+  <hr>
+  <ul>
+    <li *ngFor="let item of history; let key=index">{{item}}  ---  <button (click)="deleteHistory(key)">X</button></li>
+  </ul>
+</div>
 
 <div class="people_list">
   <ul>
-    <li>name: <input type="text" name="" id="username1" [(ngModel)]="peopleInfo.username" class="form_input"></li>
+    <li>name: <input placeholder="ashdhasd" type="text" name="" id="username1" [(ngModel)]="peopleInfo.username" class="form_input"></li>
+
     <li>
       sex:
 

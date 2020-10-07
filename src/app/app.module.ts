@@ -20,9 +20,11 @@ import { FormComponent } from './components/form/form.component';
 import { StorageService } from './services/storage.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HeaderComponent } from './components/header/header.component';
+import { ReactformComponent } from './components/reactform/reactform.component';
 
 @NgModule({
-  declarations: [AppComponent, NewsComponent, HomeComponent, FormComponent],
+  declarations: [AppComponent, NewsComponent, HomeComponent, FormComponent, HeaderComponent, ReactformComponent],
   imports: [
     BrowserModule,
     FormsModule,

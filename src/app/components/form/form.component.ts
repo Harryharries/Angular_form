@@ -17,6 +17,9 @@ import {StorageService} from '../../services/storage.service';
   styleUrls: ['./form.component.scss'],
 })
 export class FormComponent implements OnInit {
+  public keyword: string;
+  public history: any[] = [];
+
   public peopleInfo: any = {
     username: '111',
     sex: '1',
@@ -38,19 +41,48 @@ export class FormComponent implements OnInit {
     ],
   };
 
-  constructor(public storage: StorageService) {
+  constructor(public storage: StorageService
+              ) {
 
-    const s = this.storage.get();
-    console.log(s);
+    // const s = this.storage.get();
+    // console.log(s);
     // console.log(storage);
   }
 
-  ngOnInit(): void {}
+
+
+  ngOnInit(){
+
+    var searchlist:any = this.storage.get('searchlist');
+    console.log("aaa"+searchlist);
+    if (searchlist){
+      this.history = searchlist;
+    }
+
+    var rxjsData=this.storage.getRxjsData();
+
+    rxjsData.subscribe((data)=>{
+      console.log(data);
+    })
+
+  }
 
   // tslint:disable-next-line:typedef
   doSubmit(): void {
     // const usernameDom: any = document.getElementById('username1');
     // console.log(usernameDom.value);
     console.log(this.peopleInfo);
+  }
+
+  dopush(): void{
+    if (this.history.indexOf(this.keyword) == -1){
+      this.history.push(this.keyword);
+
+      this.storage.set('searchlist', this.history);
+    }
+    this.keyword = '';
+  }
+  deleteHistory(key){
+    this.history.splice(key, 1);
   }
 }

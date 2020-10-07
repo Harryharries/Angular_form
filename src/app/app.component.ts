@@ -17,7 +17,6 @@ export class AppComponent implements OnInit, AfterViewInit{
   constructor(
   ){}
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
 
   // tslint:disable-next-line:typedef

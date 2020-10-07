@@ -16,12 +16,18 @@ import { debugPort } from 'process';
 })
 export class HomeComponent implements OnInit {
 
+  public title = false;
+
   public picUrl = 'https://i0.hdslb.com/bfs/archive/622017dd4b0140432962d3ce0c6db99d77d2e937.png';
   keywords = '';
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  test(): void{
+    this.title = true;
   }
 
   run(event): void {
